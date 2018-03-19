@@ -1,5 +1,15 @@
 <?php
- 
+/*
+Plugin Name: Easy Digital Downloads - Support Hours Widget
+Description: Add a widget that allows showing support hours.
+Plugin URI: https://easydigitaldownlaods.com
+Author: Easy Digital Downloads
+Author URI: https://easydigitaldownloads.com
+Version: 0.1
+License: GPL2
+Contributors: cklosows
+*/
+
 /**
  * Support Hours Widgets
  */
@@ -97,3 +107,13 @@ class BBPS_Forum_Support_Hours extends WP_Widget {
 		echo $after_widget;
 	}
 }
+
+
+function edd_support_hours_widget() {
+	register_widget( 'BBPS_Forum_Support_Hours' );
+}
+
+function load_edd_shw() {
+	add_action( 'widgets_init', 'edd_support_hours_widget' );
+}
+add_action( 'plugins_loaded', 'load_edd_shw' );
